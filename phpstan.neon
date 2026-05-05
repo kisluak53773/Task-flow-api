@@ -1,0 +1,19 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app/Domains
+        - app/App
+        - app/Infrastructure
+        - app/Presentation
+
+    # Level 9 is the highest level. 
+    # Level 5 is a great starting point for Laravel apps.
+    level: 5
+
+    ignoreErrors:
+        # Add regex patterns here to ignore specific, unavoidable errors
+        
+    excludePaths:
+        # Add paths here if you want PHPStan to skip specific files
