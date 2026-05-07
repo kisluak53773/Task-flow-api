@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Action\Auth;
 
-use Presentation\Api\Request\LoginUserRequest;
+use Presentation\Api\Request\User\LoginUserRequest;
 use Illuminate\Validation\ValidationException;
 use Domain\User\Model\User;
 use Illuminate\Support\Facades\Hash;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Action\Project;
 
-use App\Dto\ProjectDto;
+use App\Dto\Project\ProjectDto;
 use Domain\Project\Model\Project;
 use Domain\Project\Repository\ProjectRepositoryInterface;
 use Domain\User\Model\User;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Dto;
+namespace App\Dto\User;
 
-use Presentation\Api\Request\RegsiterUserRequest;
+use Presentation\Api\Request\User\RegsiterUserRequest;
 
 readonly class RegisterUserDto
 {

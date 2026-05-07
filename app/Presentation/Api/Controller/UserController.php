@@ -8,12 +8,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Presentation\Api\Resource\UserResource;
 use Action\User\DeleteUser;
+use Action\User\GetUserAction;
 
 class UserController extends Controller
 {
-    public function get(Request $request): UserResource
+    public function get(Request $request, GetUserAction $action): UserResource
     {
-        return new UserResource($request->user());
+        $user = $action->execute($request->user());
+        return new UserResource($user);
     }
 
     public function delete(Request $request, DeleteUser $action): JsonResponse

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Presentation\Api\Controller;
 
-use App\Dto\RegisterUserDto;
+use App\Dto\User\RegisterUserDto;
 use Action\Auth\RegisterUserAction;
-use Presentation\Api\Request\RegsiterUserRequest;
-use Presentation\Api\Request\LoginUserRequest;
+use Presentation\Api\Request\User\RegsiterUserRequest;
+use Presentation\Api\Request\User\LoginUserRequest;
 use Action\Auth\LoginUserAction;
 use Action\Auth\LogoutUserAction;
 use Illuminate\Http\JsonResponse;

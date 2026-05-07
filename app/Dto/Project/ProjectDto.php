@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Dto;
+namespace App\Dto\Project;
 
-use Presentation\Api\Request\StoreProjectRequest;
+use Presentation\Api\Request\Project\StoreProjectRequest;
 
 readonly class ProjectDto
 {
