@@ -6,23 +6,21 @@ namespace Action\Project;
 
 use App\Dto\ProjectDto;
 use Domain\Project\Model\Project;
+use Domain\Project\Repository\ProjectRepositoryInterface;
 use Domain\User\Model\User;
-use Illuminate\Support\Facades\DB;
 use Domain\Project\ValueObject\ProjectRole;
 
 class CreateProjectAction
 {
+    public function __construct(private ProjectRepositoryInterface $repository) {}
+
     public function execute(ProjectDto $data, User $creator): Project
     {
-        return DB::transaction(function () use ($data, $creator) {
-            $project = Project::create([
-                'name' => $data->name,
-                'description' => $data->description,
-            ]);
+        $data = [
+            'name' => $data->name,
+            'description' => $data->description,
+        ];
 
-            $project->users()->attach($creator->id, ['role' => ProjectRole::OWNER->value]);
-
-            return $project;
-        });
+        return $this->repository->createWithMember($data, $creator, ProjectRole::OWNER->value);
     }
 }
