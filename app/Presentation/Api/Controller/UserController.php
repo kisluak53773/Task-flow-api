@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Presentation\Api\Resource\UserResource;
 use Action\User\DeleteUser;
 use Action\User\GetUserAction;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -22,6 +23,6 @@ class UserController extends Controller
     {
         $action->execute($request->user());
 
-        return response()->json(['message' => 'User deleted successfully'], 204);
+        return response()->json(status: Response::HTTP_NO_CONTENT);
     }
 }

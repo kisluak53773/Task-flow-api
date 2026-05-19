@@ -12,6 +12,7 @@ use Action\Auth\LoginUserAction;
 use Action\Auth\LogoutUserAction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AuthController extends Controller
 {
@@ -21,7 +22,7 @@ class AuthController extends Controller
         $user = $action->execute($data);
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['user' => $user, 'token' => $token], 201);
+        return response()->json(['user' => $user, 'token' => $token], Response::HTTP_CREATED);
     }
 
     public function login(LoginUserRequest $request, LoginUserAction $action): JsonResponse

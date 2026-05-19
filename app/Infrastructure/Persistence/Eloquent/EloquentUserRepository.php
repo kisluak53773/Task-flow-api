@@ -9,7 +9,7 @@ use Domain\User\Model\User;
 
 class EloquentUserRepository implements UserRepositoryInterface
 {
-    public function findByEmail(string $email): User
+    public function findByEmail(string $email): ?User
     {
         return User::where('email', $email)->first();
     }

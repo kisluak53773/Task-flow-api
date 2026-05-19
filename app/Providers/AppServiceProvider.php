@@ -2,11 +2,14 @@
 
 namespace App\Providers;
 
+use Domain\Project\Model\Project;
 use Illuminate\Support\ServiceProvider;
 use Domain\User\Repository\UserRepositoryInterface;
 use Infrastructure\Persistence\Eloquent\EloquentUserRepository;
 use Domain\Project\Repository\ProjectRepositoryInterface;
 use Infrastructure\Persistence\Eloquent\EloquentProjectRepository;
+use Infrastructure\Security\ProjectPolicy;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::policy(Project::class, ProjectPolicy::class);
     }
 }
