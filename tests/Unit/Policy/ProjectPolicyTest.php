@@ -31,7 +31,6 @@ class ProjectPolicyTest extends TestCase
         $user = Mockery::mock(User::class);
         $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
 
-        /** @var Project&MockInterface $project */
         $project = Mockery::mock(Project::class);
         $project->shouldReceive('users')->andReturn($this->mockUsersQuery(true));
 
