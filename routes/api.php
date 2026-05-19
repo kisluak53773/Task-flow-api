@@ -18,6 +18,10 @@ Route::middleware('auth:sanctum')->group(function () {
     /**Project routes */
     Route::prefix('project')->group(function () {
         Route::post('/', [ProjectController::class, 'store']);
+        Route::post('/{id}/invite', [ProjectController::class, 'invite'])
+            ->middleware('can:invite,project');
+        Route::delete('/{id}', [ProjectController::class, 'destroy'])
+            ->middleware('can:delete,project');
     });
 
     /**Profile routes */

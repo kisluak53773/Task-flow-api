@@ -12,6 +12,7 @@ class DeleteUser
     public function execute(User $user): void
     {
         DB::transaction(function () use ($user) {
+            $user->tokens()->delete();
             $user->delete();
         });
     }
